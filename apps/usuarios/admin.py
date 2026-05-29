@@ -24,3 +24,21 @@ class UsuarioAdmin(UserAdmin):
         "perfil",
         "is_staff",
     )
+
+    fieldsets = UserAdmin.fieldsets + (
+        (
+            "Informações do Sistema",
+            {
+                "fields": ("perfil",),
+            },
+        ),
+    )
+
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        (
+            "Informações do Sistema",
+            {
+                "fields": ("perfil",),
+            },
+        ),
+    )
