@@ -48,4 +48,44 @@ urlpatterns = [
         'api/docs/',
         SpectacularSwaggerView.as_view(), 
         name='swagger'),
+    
+    path(
+        'api/v1/',
+        include('apps.alunos.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.professores.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.disciplinas.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.turmas.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.avaliacoes.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.notas.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.frequencias.urls')
+    ),
+
+    path(
+        'api/v1/',
+        include('apps.grades.urls')
+    ),
 ]

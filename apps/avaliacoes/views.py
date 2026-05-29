@@ -27,9 +27,18 @@ class AvaliacaoViewSet(ModelViewSet):
             "turma"
         )
 
+        data = self.request.query_params.get(
+            "data"
+        )
+
         if turma:
             queryset = queryset.filter(
                 turma_id=turma
+            )
+
+        if data:
+            queryset = queryset.filter(
+                data=data
             )
 
         return queryset

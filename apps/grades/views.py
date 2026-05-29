@@ -2,8 +2,9 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import GradeCurricular
 from .serializers import GradeCurricularSerializer
+
 from apps.usuarios.permissoes import ECoordenador
-    permission_classes = [IsCoordenador]
+
 
 class GradeCurricularViewSet(ModelViewSet):
 

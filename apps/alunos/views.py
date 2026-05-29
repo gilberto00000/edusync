@@ -1,3 +1,5 @@
+import email
+
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 
@@ -26,6 +28,8 @@ class AlunoViewSet(ModelViewSet):
 
         matricula = self.request.query_params.get("matricula")
 
+        email = self.request.query_params.get("email")
+
         if nome:
             queryset = queryset.filter(
                 nome__icontains=nome
@@ -34,6 +38,11 @@ class AlunoViewSet(ModelViewSet):
         if matricula:
             queryset = queryset.filter(
                 matricula__icontains=matricula
+            )
+
+        if email:
+            queryset = queryset.filter(
+                email__icontains=email
             )
 
         return queryset
