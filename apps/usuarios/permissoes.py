@@ -6,9 +6,12 @@ class ECoordenador(BasePermission):
 
     def has_permission(self, request, view):
 
+        print(request.user)
+        print(request.user.perfil)
+
         return (
             request.user.is_authenticated
-            and request.user.perfil == "coordenador"
+            and request.user.perfil == "COORDENADOR"
         )
 
 class EProfessor(BasePermission):
@@ -17,7 +20,7 @@ class EProfessor(BasePermission):
 
         return (
             request.user.is_authenticated
-            and request.user.perfil == "professor"
+            and request.user.perfil == "PROFESSOR"
         )
 
 class EAluno(BasePermission):
@@ -26,7 +29,7 @@ class EAluno(BasePermission):
 
         return (
             request.user.is_authenticated
-            and request.user.perfil == "aluno"
+            and request.user.perfil == "ALUNO"
         )
 
 
@@ -37,8 +40,8 @@ class ECoordenadorOuProfessor(BasePermission):
         return ( 
             request.user.is_authenticated
             and request.user.perfil in [
-                "coordenador",
-                "professor"
+                "COORDENADOR",
+                "PROFESSOR"
             ]
         )
 
@@ -48,7 +51,7 @@ class EAlunoSomenteLeitura(BasePermission):
         
         return (
             request.user.is_authenticated
-            and request.user.perfil == "aluno"
+            and request.user.perfil == "ALUNO"
             and request.method in SAFE_METHODS
         )
 
@@ -59,14 +62,14 @@ class NotaPermissao(BasePermission):
         if not request.user.is_authenticated:
             return False
 
-        if request.user.perfil == "coordenador":
+        if request.user.perfil == "COORDENADOR":
             return True
 
-        if request.user.perfil == "professor":
+        if request.user.perfil == "PROFESSOR":
             return True
 
         if (
-            request.user.perfil == "aluno"
+            request.user.perfil == "ALUNO"
             and request.method in SAFE_METHODS
         ):
             return True
