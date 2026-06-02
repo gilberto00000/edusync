@@ -1,5 +1,56 @@
-.venv/
+# Arquivos byte-compilados / cache
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+venv/
+.env/
+.venv/
+
+# Django
 db.sqlite3
+media/
+staticfiles/
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Cache das migrations
+*/migrations/*.pyc
+
+# Logs
+*.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Cobertura / testes
+.coverage
+htmlcov/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Node
+node_modules/
+
+# Arquivos de build
+dist/
+build/
+
+# Arquivos temporários
+*.tmp
+*.swp
